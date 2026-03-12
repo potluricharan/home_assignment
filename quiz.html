@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solar System Quiz</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background-color: #f0f8ff; }
+        table { margin: 20px auto; border-collapse: collapse; width: 50%; background: white; }
+        th, td { border: 2px solid #333; padding: 15px; font-size: 1.2em; }
+        th { background-color: #008b8b; color: white; }
+        .correct { color: green; font-weight: bold; }
+        .wrong { color: red; font-weight: bold; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    </style>
+    <script>
+        function startQuiz() {
+            let correctCount = 0;
+            let wrongCount = 0;
+            let totalQuestions = 0;
+
+            // Array of questions and answers
+            const questions = [
+                { q: "What is the last planet in the solar system?", a: "neptune" },
+                { q: "Which planet is known as the Red Planet?", a: "mars" },
+                { q: "What is the largest planet in our solar system?", a: "jupiter" },
+                { q: "Which planet is famous for its rings?", a: "saturn" }
+            ];
+
+            let i = 0;
+            while (i < questions.length) {
+                let userInput = prompt(questions[i].q + "\n(Type -1 to stop the quiz)");
+
+                // Exit condition
+                if (userInput === "-1" || userInput === null) {
+                    break;
+                }
+
+                // Check answer (case-insensitive)
+                if (userInput.toLowerCase().trim() === questions[i].a) {
+                    alert("Correct! 🌟");
+                    correctCount++;
+                } else {
+                    alert("Wrong! The correct answer was " + questions[i].a);
+                    wrongCount++;
+                }
+
+                totalQuestions++;
+                i++;
+            }
+
+            // Display results in a table
+            document.getElementById("results").innerHTML = `
+                <h2>Quiz Results</h2>
+                <table>
+                    <tr>
+                        <th>Status</th>
+                        <th>Count</th>
+                    </tr>
+                    <tr>
+                        <td>Correct Answers</td>
+                        <td class="correct">${correctCount}</td>
+                    </tr>
+                    <tr>
+                        <td>Wrong Answers</td>
+                        <td class="wrong">${wrongCount}</td>
+                    </tr>
+                    <tr>
+                        <td>Total Attempted</td>
+                        <td>${totalQuestions}</td>
+                    </tr>
+                </table>
+                <p><a href="summary.html">Go back to Summary</a></p>
+            `;
+        }
+    </script>
+</head>
+<body>
+    <h1>Cosmic Quiz Challenge</h1>
+    <p>Test your knowledge of the planets! Type -1 at any time to quit and see your results.</p>
+    
+    <button onclick="startQuiz()">Start Quiz</button>
+
+    <div id="results">
+        </div>
+</body>
+</html>

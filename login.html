@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>login_page</title>
+    <style type="text/css">
+        #login_box
+        {
+            border:2px solid black;
+            text-align:center;
+            position:relative;
+            top:100px;
+            height:300px;
+            width:300px;
+            background-color:#afc2e0;
+        }
+        body
+        {
+            background-color:#081b3b;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var planetInput = document.getElementById("pname").value;
+            
+            if (planetInput == "") {
+                alert("Please enter a planet name!");
+                return false;
+            }
+            if(planetInput=="earth")
+            {
+                window.location.href = "earth.html";
+                return false;
+            }
+            if(planetInput=="mars")
+            {
+                window.location.href = "mars.html";
+                return false;
+            }
+            if(planetInput=="mercury")
+            {
+                window.location.href = "mercury.html";
+                return false;
+            }
+            if(planetInput=="jupiter")
+            {
+                window.location.href = "jupiter.html";
+                return false;
+            }
+            if(planetInput=="neptune")
+            {
+                window.location.href = "neptune.html";
+                return false;
+            }
+            if(planetInput=="venus")
+            {
+                window.location.href = "venus.html";
+                return false;
+            }
+            if(planetInput=="saturn")
+            {
+                window.location.href = "saturn.html";
+                return false;
+            }
+            else
+            {
+                window.alert("Enter the correct name");
+            }
+        }
+    </script>
+</head>
+<body>
+    <center>
+            <div id="login_box">
+                <form onsubmit="return validateForm()">
+                    <u><h1>Planetary system</h1></u>
+                    <div id="input_name">
+                        <p style="font-weight:bolder;">
+                            <label>Planet Name: 
+                                <input type="text" id="pname" name="text" size="25" maxlength="30">
+                            </label>
+                        </p>
+                        <br>
+                        <p>
+                            <input type="submit" value="submit">
+                            <input type="reset" value="Clear">
+                        </p>
+                    </div>
+                </form>
+                <br>
+                <div id="summary"><a href="summary.html">Summary of planets</a></div>
+                <br>
+                <div id="quiz"><a href="quiz.html">QUIZ</a></div>
+            </div>
+    </center>
+</body>
+</html>

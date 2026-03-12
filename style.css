@@ -1,0 +1,26 @@
+#main_box
+{
+    border:2px solid black;
+    position:relative;
+    top:100px;
+    text-align:center;
+    width:400px;
+    height:300px;
+}
+
+#main_box
+{
+    background-color:white;
+}
+body
+{
+    background-color:#e6d9ff;
+}
+
+@media screen {
+            td a:hover img {
+                background-color: deepskyblue;
+                border-color: blue;
+                border-style: solid;
+            }
+        }
