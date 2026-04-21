@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solar System Quiz</title>
+    <style>
+      body {
+       font-family: sans-serif;
+       text-align: center;
+       background-color: #081b3b;
+       }
+
+       table {
+       margin: 20px auto;
+       border: 1px solid white ;
+      }
+
+      th, td {
+    
+       border: 1px solid  white ;
+       padding: 10px;
+      }
+
+      button {
+       padding: 10px;
+
+      }
+
+       .correct { color: green; font-weight: bold; }
+       .wrong { color: red; font-weight: bold; }
+   
+    </style>
+    <script>
+        function startQuiz() {
+            var correctCount = 0;
+            var wrongCount = 0;
+            var totalQuestions = 0;
+
+            // Separate arrays for questions and answers
+            var questions = [
+                "What is the last planet in the solar system?",
+                "Which planet is known as the Red Planet?",
+                "What is the largest planet in our solar system?",
+                "Which planet is famous for its rings?"
+            ];
+
+            var answers = [
+                "neptune",
+                "mars",
+                "jupiter",
+                "saturn"
+            ];
+
+            var i = 0;
+            while (i < questions.length) {
+                var userInput = prompt(questions[i] + "\n(Type -1 to stop the quiz)");
+
+                
+                if (userInput === "-1" || userInput === null) {
+                    break;
+                }
+
+            
+                if (userInput.toLowerCase().trim() === answers[i]) {
+                    alert("Correct answer!");
+                    correctCount++;
+                } else {
+                    alert("Wrong! The correct answer was " + answers[i]);
+                    wrongCount++;
+                }
+
+                totalQuestions++;
+                i++;
+            }
+
+            
+            document.getElementById("results").innerHTML = `
+                <h2 style='color:white;'>Quiz Results</h2>
+                <table style='color: white;'>
+                    <tr>
+                        <th>Status</th>
+                        <th>Count</th> 
+                    </tr>
+                    <tr>
+                        <td>Correct Answers</td>
+                        <td class="correct">${correctCount}</td>
+                    </tr>
+                    <tr>
+                        <td>Wrong Answers</td>
+                        <td class="wrong">${wrongCount}</td>
+                    </tr>
+                    <tr>
+                        <td>Total Attempted</td>
+                        <td>${totalQuestions}</td>
+                    </tr>
+                </table>
+                <p><a href="summary.html">Go back to Summary</a></p>`;
+        }
+    </script>
+</head>
+<body>
+    <h1 style='color:white;'>Cosmic Quiz Challenge</h1>
+    <p style='color:white;'>Test your knowledge of the planets! Type -1 at any time to quit and see your results.</p>
+    
+    <button onclick="startQuiz()" >Start Quiz</button>
+
+    <div id="results"></div>
+</body>
+</html>
